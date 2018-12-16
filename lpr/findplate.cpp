@@ -105,7 +105,7 @@ void FindLicense::get_license()
         ratio = ratio < 1 ? 1 / ratio : ratio;
         double standard = 3.15;
         double error = 0.6;
-        if (rect_area > 1000000 && rect_area <= 2100000)
+        if (rect_area > 800 && rect_area <= 2100000)
         {
             if (ratio >= standard * (1 - error) && ratio <= standard * (1 + error))
             {
