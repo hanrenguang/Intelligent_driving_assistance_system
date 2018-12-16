@@ -26,7 +26,7 @@ while True:
             break
         img = cv2.imread(data)
         res = HyperLPR_PlateRecogntion(img)
-        print "res: %s" % (res[0][0].encode("utf-8"))
+        print "LPR: %s" % (res[0][0].encode("utf-8"))
         tcpCliSock.send('[%s] %s' % (ctime(), res[0][0].encode("utf-8")))
 
 tcpSerSock.close()
