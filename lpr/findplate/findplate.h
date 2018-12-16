@@ -7,9 +7,9 @@
 #include <sstream>
 #include <opencv2/opencv.hpp>
 
-#include "common/rvec2elur.h"
-#include "common/myThreshold.h"
-#include "common/codeRotate.h"
+#include "../common/rvec2elur.h"
+#include "../common/myThreshold.h"
+#include "../common/codeRotate.h"
 
 using namespace std;
 using namespace cv;
