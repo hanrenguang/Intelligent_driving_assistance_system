@@ -1,23 +1,24 @@
 #include "autodrive.h"
 
+
 Autodrive::Autodrive(){
-    if(!park.initial()){
-        cout<<"park initial fail"<<endl;
+    if(!find.initial()){
+        cout<<"findplate initial fail"<<endl;
         exit(-1);
     }
 
 #ifdef SERIAL
-    if(!serial.open_port()) {
-        cout << "open port fail" << endl;
-        exit(-1);
-    }
+   // if(!serial.open_port()) {
+   //     cout << "open port fail" << endl;
+   //     exit(-1);
+   // }
 #endif // !end SERIAL
-    if(!capture.open(0)){
+    // if(!capture.open(0)){
         if(!capture.open(1)) {
             cout << "capture open fail" << endl;
             exit(-1);
         }
-    }
+    // }
     waitKey(200);
     cout<<"initial OK!!!"<<endl;
 }
@@ -43,11 +44,11 @@ void Autodrive::run() {
 void Autodrive::doPark() {
     int flag=0;
     while (waitKey(1)!=27) {
-        int n = serial.receive();
-        if ((n > 0) && (serial.buf[0] == 'd')) {
-            state = Nothing;
-            break;
-        }
+  //      int n = serial.receive();
+  //      if ((n > 0) && (serial.buf[0] == 'd')) {
+  //          state = Nothing;
+  //          break;
+  //      }
         for (int i = 0; i < 30; i++) {  //更新缓存
             capture >> srcImage;
         }
@@ -55,7 +56,7 @@ void Autodrive::doPark() {
             cout << "image empty!" << endl;
             exit(-1);
         }
-        if (!park.getpark(srcImage, point, theta)) {
+        if (!find.getlicense(srcImage, point, theta)) {
             cout << "fail park" << endl;
             flag++;
             if(flag>=5){
@@ -83,11 +84,12 @@ void Autodrive::doPark() {
 
 void Autodrive::doNothing() {
     while(true){
-        std::cout<<"waiting for command"<<std::endl;
-        int n=serial.receive();
-        if(n>0 && (serial.buf[0]=='c')){
-            state=CPark;
-            break;
-        }
+ //       std::cout<<"waiting for command"<<std::endl;
+ //       int n=serial.receive();
+ //       if(n>0 && (serial.buf[0]=='c')){
+ //           state=CPark;
+	    state=CPark;
+        break;
+ //       }
     }
 }

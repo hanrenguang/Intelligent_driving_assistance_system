@@ -2,10 +2,11 @@
 #define INTELLIGENT_DRIVING_AUTODRIVE_H
 
 #include <opencv2/opencv.hpp>
+#include <iostream>
 
 
-#include "../park/Park.h"
-
+// #include "../park/Park.h"
+#include "../findplate/findplate.h"
 #include "../../serial/Serial.h"
 
 using namespace std;
@@ -21,7 +22,7 @@ public:
     Autodrive();//构造函数
     void run();
 private:
-    Park park;
+    FindLicense find;
 
     STATUS state=Nothing;//当前状态
 
