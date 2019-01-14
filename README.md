@@ -2,7 +2,10 @@
 智能驾驶辅助系统（课设）
 
 ## 运行环境
-Ubuntu16.04 CMake OpenCV3.4 python2.x/3.x
+- Ubuntu16.04  
+- CMake  
+- OpenCV3.4  
+- Python2.x/3.x
 
 ## 说明
 本项目仅学习使用，且并未包含嵌软部分代码，运行时需修改 `src/autofollow` 下的源码，把PC与主控板通信部分代码注释掉
