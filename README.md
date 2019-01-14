@@ -59,3 +59,5 @@ $ ./Intelligent_driving
 ### 已完成
 - [x] 课程答辩
 
+## License
+MIT
